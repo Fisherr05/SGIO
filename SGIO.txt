@@ -1,0 +1,58 @@
+
+
+CREATE DATABASE SGIO;
+
+CREATE TABLE Paciente (
+	id_paciente BIGSERIAL NOT NULL,
+    Ced_paciente   VARCHAR(10) NOT NULL,
+	Nombres		   VARCHAR(50) NOT NULL,
+    Apellidos      VARCHAR(50) NOT NULL,
+    Direccion      VARCHAR(80) NOT NULL,
+    email          VARCHAR(50) NOT NULL,
+	Telefono	   VARCHAR(10) NOT NULL,
+	Alergias	   VARCHAR(80),
+	Edad		   INTEGER NOT NULL,
+	Observaciones	VARCHAR(100),
+       
+       PRIMARY KEY (id_paciente)
+);
+
+CREATE TABLE Doctor(
+    id_doctor   BIGSERIAL NOT NULL,
+	Ced_doctor   VARCHAR(10) NOT NULL,
+	Nombres		   VARCHAR(50) NOT NULL,
+    Apellidos      VARCHAR(50) NOT NULL,
+    Especialidad   VARCHAR(50) NOT NULL,
+	Direccion	VARCHAR(80) NOT NULL,
+	Telefono 	VARCHAR(10)NOT NULL,
+       
+       PRIMARY KEY (id_doctor)
+);
+
+CREATE TABLE Especialidad(
+    id_especialidad   BIGSERIAL NOT NULL,
+	id_doctor		   BIGSERIAL NOT NULL,
+    Especialidad      VARCHAR(50) NOT NULL,
+       PRIMARY KEY (id_especialidad),
+	FOREIGN KEY (id_doctor) REFERENCES Doctor(id_doctor) 
+);
+
+CREATE TABLE Cita(
+    id_cita   	BIGSERIAL NOT NULL,
+	id_paciente	BIGSERIAL NOT NULL,
+    id_doctor      BIGSERIAL NOT NULL, 
+	Fecha_Cita   	DATE NOT NULL,
+	Hora_Cita		TIME NOT NULL,
+       PRIMARY KEY (id_cita),
+	FOREIGN KEY (id_paciente) REFERENCES Paciente(id_paciente), 
+	FOREIGN KEY (id_doctor) REFERENCES Doctor(id_doctor) 
+);
+
+CREATE TABLE Administrador(
+	id_administrador   	BIGSERIAL NOT NULL,
+    Usuario   	VARCHAR(50) NOT NULL,
+	Contraseña	VARCHAR(50) NOT NULL,
+ 
+       PRIMARY KEY (id_administrador)
+	
+);
