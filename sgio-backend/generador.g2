@@ -1,0 +1,59 @@
+group: co.espochpi3
+artifact: sgiobackend
+api_prefix: /api/sgio
+timezone:America/Guayaquil
+entities{
+	
+	entity Paciente{
+	operations: r c u d
+	idPaciente : Long pk
+	cedPaciente : String
+	nombresPaciente : String 
+	apellidosPaciente : String 
+	direccionPaciente  : String
+	emailPaciente : String
+	telefonoPaciente :  String
+	alergiasPaciente :  String
+	edadPaciente :  String
+	observacionesPaciente : String
+	
+	}
+	
+	
+
+	entity Doctor{
+	operations: r c u d
+	idDoctor : Long pk
+	cedDoctor : String
+	nombresDoctor : String 
+	apellidosDoctor : String 
+	especialidadDoctor : String
+	direccionDoctor : String
+	telefonoDoctor :  String
+	}
+ 
+	entity Especialidad{
+	operations: r c u d
+	idEspecialidad   :  Long pk
+	idDoctor		  :  Long
+    Especialidad      :  String
+	}
+	
+	entity Cita{
+	operations: r c u d
+	idCita   	:Long pk
+	idPaciente	:Long
+    idDoctor   :Long 
+	fechaCita  :String 
+	horaCita	:String
+	}
+
+
+
+entity Administrador{
+	operations: r c u d
+	idAdministrador: Long pk
+    usuario   	:String
+	password	:String	
+	}
+}
