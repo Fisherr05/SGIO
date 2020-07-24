@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="card">
+      <div class="card-header">
+          <div class="col-md-10">
+              <h1>Registro de Paciente</h1>
+          </div>
+      </div>
+      <div class="card-body">
+          <form action=""> 
+              <div class="form-group">
+                <input type="text" class="form-control" name="cedulaPaciente" [(ngModel)]="paciente.cedPaciente" id="cedula" placeholder="Cédula del Paciente">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="nombresPaciente" [(ngModel)]="paciente.nombresPaciente"  id="nombres" placeholder="Nombres del Paciente"> 
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="apellidosPaciente" [(ngModel)]="paciente.apellidosPaciente"  id="apellidos" placeholder="Apellidos del Paciente">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="direccionPaciente" id="direccion" [(ngModel)]="paciente.direccionPaciente"  rows="4" placeholder="Dirección del Paciente"></textarea>
+              </div> 
+              <div class="form-group">
+                <input type="email" class="form-control" name="emailPaciente" id="email" [(ngModel)]="paciente.emailPaciente"  aria-describedby="emailHelp" placeholder="E-mail del Paciente">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="telefonoPaciente" id="telefono" [(ngModel)]="paciente.telefonoPaciente"  placeholder="Teléfono del Paciente">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="alergiasPaciente" id="alergias" rows="4" [(ngModel)]="paciente.alergiasPaciente"  placeholder="Alergias del Paciente"></textarea>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="edadPaciente" id="edad" value="" [(ngModel)]="paciente.edadPaciente"  placeholder="Edad del Paciente">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="observacionesPaciente" id="observaciones" [(ngModel)]="paciente.observacionesPaciente"   rows="4" placeholder="Observaciones del Paciente"></textarea>
+              </div>
+              <div class="text-center justify-content-center">
+                <button class="btn btn-primary btn-lg" (click)="guardarPaciente()">
+                  Guardar
+                </button>
+                <a routerLink="/pacientes"  class="btn btn-danger btn-lg">Cancelar</a>
+              </div>
+            </form>
+      </div>
+  </div>
+</div>

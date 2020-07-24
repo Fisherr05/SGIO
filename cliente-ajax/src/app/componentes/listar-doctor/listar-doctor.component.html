@@ -1,0 +1,55 @@
+
+    <div class="card">
+        <div class="table-responsive justify-content-center">
+            <div class="card-header align-items-center">       
+                <div class="row align-items-center" >
+                    <div class="col-md-10">
+                        <h1>Doctores</h1>
+                    </div>
+                    <div class="container col-md-2 ">
+                        <div class="text-center justify-content-center">
+                            <a routerLink="/doctores/add" class="btn btn-info ">Nuevo Registro</a>
+                        <a href="" class="btn btn-primary" syle="margin-left:30px;" >Buscar</a>
+                        </div>
+                        
+                    </div>
+                </div>
+    
+            </div>
+            <div class="card-body">
+                <table class="table table-striped table-hover table-bordered table-sm bg-white table-sm ">
+                    <thead class="thead-dark">
+                      <tr>
+                        <td>ID</td>
+                        <td>Cédula</td>
+                        <td>Nombres</td>
+                        <td>Apellidos</td>
+                        <td>Especialidad</td>
+                        <td>Dirección</td>
+                        <td>Teléfono</td>
+                        <td>Operaciones</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let doctor of doctores">
+                        <td>{{doctor.idDoctor}}</td>
+                        <td>{{doctor.cedDoctor}}</td>
+                        <td>{{doctor.nombresDoctor}}</td>
+                        <td>{{doctor.apellidosDoctor}}</td>
+                        <td>{{doctor.especialidadDoctor}}</td>
+                        <td>{{doctor.direccionDoctor}}</td>
+                        <td>{{doctor.telefonoDoctor}}</td>
+                        <td>
+                            <div class="mx-auto">
+                                <a [routerLink]="['/doctores/edit', doctor.idDoctor]" class="btn btn-secondary">modificar</a> 
+                                <a class="btn btn-danger btn-delete" (click)="borrarDoctor(doctor.idDoctor)">eliminar</a>
+                            </div>
+                                
+                        </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+            </div>
+        </div>       
+    </div>
