@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <div class="col-md-10">
+                <h1>Modificar Cita</h1>
+            </div>
+        </div>
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                  <label>Seleccione Doctor</label>
+                  <select class="form-control" [(ngModel)]="cita.idDoctor" [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let doctor of doctores" value="{{doctor.idDoctor}}" >{{doctor.nombresDoctor}} {{doctor.apellidosDoctor}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Seleccione Paciente</label>
+                  <select class="form-control" [(ngModel)]="cita.idPaciente" [ngModelOptions]="{standalone: true}">
+                    <option  *ngFor="let paciente of pacientes" value="{{paciente.idPaciente}}" >{{paciente.nombresPaciente}} {{paciente.apellidosPaciente}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Escoja la fecha</label>
+                  <input type="date" class="form-control" [(ngModel)]="cita.fechaCita" name="fechaCita"  id="fecha">
+                </div>
+                <div class="form-group">
+                  <label>Escoja la hora</label>
+                  <input type="time" class="form-control" [(ngModel)]="cita.horaCita" name="horaCita"  id="hora" min="08:00" max="17:00" required>
+                </div>
+
+                <div class="text-center justify-content-center">
+                  <button class="btn btn-primary btn-lg" (click)="actualizarCita()">
+                    Actualizar
+                  </button>
+                  <a routerLink="/citas"  class="btn btn-danger btn-lg">Cancelar</a>
+                </div>
+              </form>
+        </div>
+    </div>
+  </div>
